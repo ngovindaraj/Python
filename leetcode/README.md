@@ -16,6 +16,8 @@ Algorithm based
 Data Structure based
 --------------------------------------------
 ###Tree###
+|#  | Difficulty | Problem and Solution                                                           |
+|:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Easy       | Binary Tree [Max](https://leetcode.com/problems/maximum-depth-of-binary-tree/)/[Min](https://leetcode.com/problems/minimum-depth-of-binary-tree/) height ([solution](./ds_tree_max_min_height.py))        |
 
 ----------------------------------------------------------------------------------------
