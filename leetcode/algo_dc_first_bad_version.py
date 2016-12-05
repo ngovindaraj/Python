@@ -20,11 +20,12 @@ the number of calls to the API.
 # @return a bool
 # def isBadVersion(version):
 
+#Lower bound method, let e go beyond bounds
 def firstBadVersion(self, n):
   b = 1
   e = n
   while b <= e:
-    mid = b + (e-b)/2
-    if isBadVersion(mid) == False: b = mid+1 
-    else: e = mid-1
-    return b
+    mid = b + (e - b) / 2
+    if isBadVersion(mid) == False: b = mid + 1 
+    else:                          e = mid - 1
+  return b
