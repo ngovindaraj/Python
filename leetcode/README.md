@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [5 Leetcode solutions](./) with comments.
+This is a collection of my [6 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -10,7 +10,7 @@ Algorithm based
 |1. | Easy       | [Guess Number Higher or Lower](https://leetcode.com/problems/guess-number-higher-or-lower/) ([solution](./algo_dc_elem_guess_num_higher_or_lower.py))        |
 |2. | Easy       | [First bad version](https://leetcode.com/problems/first-bad-version/) ([solution](./algo_dc_first_bad_version.py))  |
 |3. | Medium     | [Search insert position](https://leetcode.com/problems/search-insert-position/) ([solution](./algo_dc_search_insert_position.py))                |
-
+|4. | Medium     |  [Missing Number](https://leetcode.com/problems/missing-number/) ([solution](./algo_dc_missing_number.py))          |
 
 ----------------------------------------------------------------------------------------
 Data Structure based
