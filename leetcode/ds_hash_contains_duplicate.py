@@ -17,3 +17,4 @@ def containsDuplicate(self, nums):
     if val not in dict:  dict[val] = 1
     elif val in dict:    return True
   return False
+
