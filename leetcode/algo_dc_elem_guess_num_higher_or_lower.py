@@ -19,12 +19,12 @@ Return 6.
 # The guess API is already defined for you.
 # @param num, your guess
 # @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
-# def guess(num):
+# Regular Binary Search implementation
+# Time Complexity = O(log n)
 def guessNumber(self, n):
-  b = 1
-  e = n
-  while b<=e:
-    mid = b+(e-b)/2
-    if guess(mid)   == -1: e = mid-1
-    elif guess(mid) ==  1: b = mid+1
-    else: return mid
+  b, e = 1, n
+  while b <= e:
+    mid = b + (e - b) / 2
+    if guess(mid)   == -1: e = mid - 1
+    elif guess(mid) ==  1: b = mid + 1
+    else:                  return mid
