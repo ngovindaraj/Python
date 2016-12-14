@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [8 Leetcode solutions](./) with comments.
+This is a collection of my [9 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -25,6 +25,7 @@ Data Structure based
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Easy       | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) ([solution](./ds_hash_contains_duplicate.py)) |
+|2. | Easy       | [Single Number](https://leetcode.com/problems/single-number/) ([solution](./ds_hash_single_number.py))                |
 
 
 ----------------------------------------------------------------------------------------
