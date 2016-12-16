@@ -13,8 +13,8 @@ the array, and it should return false if every element is distinct.
 #Time Complexity = O(n)   since we have a single for-loop to look at all numbers
 def containsDuplicate(self, nums):
   dict = {}
-  for val in nums:
-    if val not in dict:  dict[val] = 1
-    elif val in dict:    return True
+  for num in nums:
+    if num not in dict:  dict[num] = 1
+    elif num   in dict:  return True
   return False
 
