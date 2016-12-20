@@ -11,7 +11,7 @@ Example 2: Given s = "leetcode", return "leotcede".
 Note: The vowels does not include the letter "y".
 '''
 
-Approach 1: Two pointer approach
+#Approach 1: Two pointer approach
 def reverseVowels(self, s):
   vowset = {'a','e','i','o','u','A','E','I','O','U'}
   lst  = list(s)
