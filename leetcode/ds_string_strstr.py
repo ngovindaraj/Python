@@ -15,6 +15,9 @@ haystack, or -1 if needle is not part of haystack.
       if haystack[i : i + len(needle)] == needle : return i
     return -1
         
+#Approach 2: Boyer-Moore
+#Need to learn and implement
+
 # haystack,  needle,       idx
 # "",            "",         0
 # "abc",       "bc",         1
