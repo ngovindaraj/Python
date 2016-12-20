@@ -20,3 +20,4 @@ def countSegments(self, s):
 #"   ,   "                 1
 #" "                       0
 #" @ ab, sdfwe !"          4
+
