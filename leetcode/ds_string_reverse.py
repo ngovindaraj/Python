@@ -1,4 +1,4 @@
-# @file  Same Tree
+# @file  Reverse String
 # @brief Reverse an entire string
 
 # https://leetcode.com/problems/reverse-string/
