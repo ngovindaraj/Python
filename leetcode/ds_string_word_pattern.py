@@ -18,3 +18,22 @@ You may assume pattern contains only lowercase letters, and str contains
 lowercase letters separated by a single space.
 '''
 
+# Approach 1:
+def wordPattern(self, pattern, str):
+   clist = pattern            #treat string as a list of chars
+   wlist = str.split()        #split string into a list of words
+   # map(function, sequence): map applies the given function to every element in the sequence and returns a list
+   # index - finds the index of the first occurence of every element in both list and string
+   return map(clist.index, clist) == map(wlist.index, wlist)
+        
+# Approach 2:
+def wordPattern(self, pattern, str):
+    clist = pattern            
+    wlist = str.split()
+    # zip returns a tuple, cpupling the ith elements from both lists
+    return len(clist) == len(wlist) and len(set(clist)) == len(set(wlist)) == len(set(zip(clist, wlist)))
+        
+# "abba", "dog cat cat dog", True.
+# "abba", "dog cat cat fish" False.
+# "aaaa", "dog cat cat dog"  False.
+# "abba", "dog dog dog dog"  False.
