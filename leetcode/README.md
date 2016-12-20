@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [12 Leetcode solutions](./) with comments.
+This is a collection of my [14 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -32,6 +32,8 @@ Data Structure based
 ###String###
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
-|1. | Easy       | [Word Pattern](https://leetcode.com/problems/word-pattern/) ([solution](./ds_string_word_pattern.py))    |
+|1. | Easy       | [Reverse String](https://leetcode.com/problems/reverse-string/) ([solution](./ds_string_reverse_string.py))    |
+|2. | Easy       | [Reverse Vowels](https://leetcode.com/problems/reverse-vowels-of-a-string/) ([solution](./ds_string_reverse_vowels.py))    |
+|3. | Easy       | [Word Pattern](https://leetcode.com/problems/word-pattern/) ([solution](./ds_string_word_pattern.py))          |
 
 ----------------------------------------------------------------------------------------
