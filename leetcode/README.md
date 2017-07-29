@@ -4,8 +4,7 @@ This is a collection of my [16 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
-
-###Divide and Conquer###
+**Divide and Conquer**
 
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
@@ -17,7 +16,7 @@ Algorithm based
 ----------------------------------------------------------------------------------------
 Data Structure based
 --------------------------------------------
-###Tree###
+**Tree**
 
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
@@ -26,7 +25,7 @@ Data Structure based
 |3. | Easy       | [Same Tree](https://leetcode.com/problems/same-tree/) ([solution](./ds_tree_same_tree.py))       | 
 
 
-###Hash Table (Dictionary)###
+**Hash Table (Dictionary)**
 
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
@@ -35,7 +34,7 @@ Data Structure based
 |3. | Easy       | [Two Sum](https://leetcode.com/problems/two-sum/) ([solution](./ds_hash_two_sum.py))                                  |
 
 
-###String###
+**String**
 
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
