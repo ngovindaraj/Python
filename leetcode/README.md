@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [16 Leetcode solutions](./) with comments.
+This is a collection of my [17 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -44,5 +44,13 @@ Data Structure based
 |4. | Easy       | [Substring Search(strstr)](https://leetcode.com/problems/implement-strstr/) ([solution](./ds_string_strstr.py)) |
 |5. | Easy       | [Word Pattern](https://leetcode.com/problems/word-pattern/) ([solution](./ds_string_word_pattern.py))           |
 
+
+----------------------------------------------------------------------------------------
+Math based
+--------------------------------------------
+
+|#  | Difficulty | Problem and Solution                                                           |
+|:--|:-----------|:-------------------------------------------------------------------------------|
+|1. | Medium       | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) ([solution](./math_shuffle.py))   |
 
 ----------------------------------------------------------------------------------------
