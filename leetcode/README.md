@@ -16,13 +16,19 @@ Algorithm based
 ----------------------------------------------------------------------------------------
 Data Structure based
 --------------------------------------------
+**List**
+
+|#  | Difficulty | Problem and Solution                                                           |
+|:--|:-----------|:-------------------------------------------------------------------------------|
+|1. | Easy       | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) ([solution](./ds_list_contains_duplicate.py)) |
+
 **Tree**
 
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Easy       | Binary Tree [Max](https://leetcode.com/problems/maximum-depth-of-binary-tree/)/[Min](https://leetcode.com/problems/minimum-depth-of-binary-tree/) depth ([solution](./ds_tree_max_min_depth.py))        |
 |2. | Easy       | [Is Height Balanced BT](https://leetcode.com/problems/balanced-binary-tree/) ([solution](./ds_tree_height_balanced.py))     |
-|3. | Easy       | [Same Tree](https://leetcode.com/problems/same-tree/) ([solution](./ds_tree_same_tree.py))       | 
+|3. | Easy       | [Same Tree](https://leetcode.com/problems/same-tree/) ([solution](./ds_tree_same_tree.py))       |
 
 
 **Hash Table (Dictionary)**
