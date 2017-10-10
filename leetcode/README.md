@@ -21,6 +21,7 @@ Data Structure based
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Easy       | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) ([solution](./ds_list_contains_duplicate.py)) |
+|2. | Easy       | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate-ii/) ([solution](./ds_list_contains_duplicateII.py)) |
 
 **Tree**
 
@@ -44,7 +45,7 @@ Data Structure based
 
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
-|1. | Easy       | [Reverse String](https://leetcode.com/problems/reverse-string/) ([solution](./ds_string_reverse_string.py))     |
+|1. | Easy       | [Reverse String](https://leetcode.com/problems/reverse-string/) ([solution](./ds_string_reverse.py))     |
 |2. | Easy       | [Reverse Vowels](https://leetcode.com/problems/reverse-vowels-of-a-string/) ([solution](./ds_string_reverse_vowels.py))    |
 |3. | Easy       | [Number of Segments](https://leetcode.com/problems/number-of-segments-in-a-string/) ([solution](./ds_string_num_segments.py))      |
 |4. | Easy       | [Substring Search(strstr)](https://leetcode.com/problems/implement-strstr/) ([solution](./ds_string_strstr.py)) |
