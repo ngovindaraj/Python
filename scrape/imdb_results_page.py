@@ -9,121 +9,96 @@ List of 100s:
 - User Rating /10 - Float(div id ="main" > div class ="article"> div class =" lister list detail sub-list", div class = "lister-list", div class="lister-item mode-advanced", div class="lister-item-content",div class="ratings-bar", div class="inline-block ratings-imdb-rating", data value=?)
 - Genre           - Enum
 - Runtime in mins - Int
-- Director        - Enum
-- Stars           - List of Enum
+- *Director        - Enum
+- *Stars           - List of Enum
 - US Gross        - Int
 - #Votes          - Int
-
-Inside one page:
-- Budget             - Int
-- Production Company - Enum --not doing
-- Release Date  - Date/Time
-- Writer             - Enum
-- Opening Weekend$   - Int
 '''
 
 # import libraries
-import requests
-from bs4 import BeautifulSoup
-
-# Get html contents
-def readURL(url):
-    # page = requests.get(url)
-    with open(url, 'r') as myfile:
-        data = myfile.read()
-    return data
-
-# url1
-html = readURL('/Users/navina/Desktop/imdb_test.htm')
-soup = BeautifulSoup(html, 'html.parser')
-
-# url2
-html2 = readURL('/Users/navina/Desktop/movie1.htm')
-soup2 = BeautifulSoup(html2, 'html.parser')
-
-def process_movie_main_link(mv):
-    sno = mv.find("span", "lister-item-index unbold text-primary").get_text()
-    title = mv.find("h3", "lister-item-header").find("a").get_text()
-    mpaa_rating = mv.find("span", "certificate").get_text()
-    metascore = mv.find("span", "metascore").get_text()
-    user_rating = mv.find("div", "inline-block ratings-imdb-rating").find("strong").get_text()
-    genre = mv.find("span", "genre").get_text().strip()
-    runtime = mv.find("span", "runtime").get_text()
-    print("Serial No. {}").format(sno)
-    print("Movie Title: {}").format(title)
-    print("MPAA Rating: {}").format(mpaa_rating)
-    print("Metacore: {}").format(metascore)
-    print("User Rating: {}").format(user_rating)
-    print("Genre: {}").format(genre)
-    print("Runtime {}").format(runtime)
-
-
-main_section = soup.find(id="main")
-all_movie_tags = main_section.select(".article .lister-item-content")
-
-for each_movie in all_movie_tags:
-    process_movie_main_link(each_movie)
-
-
-
-
-    #add to mysql
+import re
+from utils import readURL, html2Soup, getTagText, getInt, getFloat
+# from sql_db import MySql
 
 
 
 
 '''
-# test for first movie
-
-first_movie = all_movie_tags[0]
-print(first_movie)
-sno = first_movie.find("span", "lister-item-index unbold text-primary").get_text()
-title = first_movie.find("h3", "lister-item-header").find("a").get_text()
-mpaa_rating = first_movie.find("span", "certificate").get_text()
-metascore = first_movie.find("span", "metascore").get_text()
-user_rating = first_movie.find("div", "inline-block ratings-imdb-rating").find("strong").get_text()
-genre = first_movie.find("span", "genre").get_text().strip()
-runtime = first_movie.find("span", "runtime").get_text()
-
-print("Serial No. {}".format(sno))
-print("Movie Title: {}".format(title))
-print("MPAA Rating: {}".format(mpaa_rating))
-print("Metacore: {}".format(metascore))
-print("User Rating: {}".format(user_rating))
-print("Genre: {}".format(genre))
-print("Runtime: {}".format(runtime))
-
-#url2
-
-# titlebar = soup.find("div", "titleBar")
-# print(type(titlebar))
-
-#titlebar_tags = titlebar.select(".div .subtext")
-#first_movie_titlebar = titlebar_tags[0]
-#print(first_movie_titlebar)
-
-director = soup2.find("span", "itemprop").find(itemprop="director").get_text()
-#print(director)
-
-total_votes = soup2.find("span", {"itemprop": "ratingCount"}).get_text()
-print(total_votes)
-
-#us_boxoffice_gross = soup2.find("div", "article").get_text()
-#print(us_boxoffice_gross)
-
-stars = soup2.find("span", {"itemprop": "actors"}).get_text()
-print(stars)
-
-box_office = soup2.find("")
-budget = soup2.find("span", {"itemprop": "actors"}).get_text()
-print(budget)
-
-release_date = soup2.find("a", {"title": "See more release dates"}).get_text()
-print(release_date)
-
-writer = soup2.find("span", {"itemprop": "creator"}).get_text()
-print(writer)
-
-opening_weekend_gross = soup2.find("span", {"itemprop": "creator"}).get_text()
-print(opening_weekend_gross)
+sql = MySql(user='ngovindaraj', passwd='the rock', db='imdb')
+sql.connect()
 '''
+
+#0) Get URL of movie page
+#1) Create SQL tables in 3NF
+#2) Insert dummy values
+#3) Hook up insert_one_movie_into_mysql() to insert 100 movies into MySQL
+#4) Use Request, to get all 12K Movies into MySQL
+
+
+# Create all the tables that we need for results page
+def create_sql_tables():
+    pass
+
+
+def get_urls():
+    movie_url = mv.find('a', href=re.compile('/title/'))
+    print(movie_url)
+
+
+def insert_one_movie_into_mysql(
+    sno, title, mpaa_rating, metascore,
+    user_rating, genre, runtime, votes_count, us_box_gross, director,
+    star1, star2, star3, movie_url):
+    print("{sno}. {title} has rating {mpaa}".format(
+        sno=sno, title=title, mpaa=mpaa_rating))
+    print("Metascore: {}".format(metascore))
+    print("User Rating: {}".format(user_rating))
+    print("Genre: {}".format(genre))
+    print("Runtime: {}".format(runtime))
+    print("Votes Count: {}".format(votes_count))
+    print("US Box Office Gross: {}".format(us_box_gross))
+    print("Director: {dir} Stars: {s1}, {s2}, {s3}".format(
+        dir=director, s1=star1, s2=star2, s3=star3))
+    print("Movie URL: {}".format(movie_url))
+    #sql.insertRow()
+
+
+# For each movie use BeautifulSoup find() to get all the relevant fields.
+# After processing one movie, insert it to MySQL
+def process_results_one_movie(mv):
+    sno = getTagText(mv.find(
+        "span", class_="lister-item-index unbold text-primary"))
+    title = getTagText(mv.find("h3", class_="lister-item-header").find("a"))
+    mpaa_rating = getTagText(mv.find("span", class_="certificate"))
+    metascore = getInt(getTagText(mv.find("span", class_="metascore")))
+    user_rating = getFloat(getTagText(mv.find(
+        "div",
+        class_="inline-block ratings-imdb-rating").find("strong")))
+    genre = getTagText(mv.find("span", class_="genre"))
+    runtime = getTagText(mv.find("span", class_="runtime"))
+    runtimeNum = getInt(runtime.split()[0])
+    votes = getTagText(mv.find(
+        "p", class_="sort-num_votes-visible")).split()[1]
+    votes_count = getInt(votes.replace(',', ''))
+    us_box_gross = getTagText(mv.find(
+        "p", class_="sort-num_votes-visible")).split()[-1]
+    director = getTagText(mv.find('a', href=re.compile('adv_li_dr_0')))
+    star1 = getTagText(mv.find('a', href=re.compile('adv_li_st_0')))
+    star2 = getTagText(mv.find('a', href=re.compile('adv_li_st_1')))
+    star3 = getTagText(mv.find('a', href=re.compile('adv_li_st_2')))
+    movie_url = mv.find('a', href=re.compile('/title/'))['href']
+    insert_one_movie_into_mysql(
+        sno, title, mpaa_rating, metascore,
+        user_rating, genre, runtimeNum, votes_count, us_box_gross, director,
+        star1, star2, star3, movie_url)
+
+
+def process_results_page(url):
+    html = readURL(url)
+    main_section = html2Soup(html).find(id="main")
+    for each_movie in main_section.select(".article .lister-item-content"):
+        process_results_one_movie(each_movie)
+        # break
+
+
+# process_results_page('/Users/navina/Desktop/imdb_test.htm')

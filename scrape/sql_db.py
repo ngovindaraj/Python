@@ -1,10 +1,8 @@
-"""
-SQL Interface for IMDB movie data.
-"""
 
-import csv
+# SQL Interface for IMDB movie data.
+
 import mysql.connector
-from mysql.connector import Error
+# mfrom mysql.connector import Error
 
 
 class MySql(object):
@@ -26,7 +24,7 @@ class MySql(object):
 
     def sqlExecute(self, execStr, toPrint):
         if toPrint:
-            print execStr
+            print(execStr)
         try:
             self.cursor_.execute(execStr)
         except mysql.connector.Error as err:
@@ -50,60 +48,110 @@ class MySql(object):
             tabName, colListStr)
         return self.sqlExecute(execStr, toPrint)
 
-    # TODO: Insert a row of data into SQL table
-    def insert(self, tabName, colList, ignoreHeader=True, toPrint=False):
+    def insertRow(self, tabName, colList, colFmtStr, valList, toPrint=False):
+        query = 'INSERT INTO {} ({}) VALUES({})'.format(
+            tabName, colList, colFmtStr)
+        try:
+            self.cursor_.executemany(
+                query, valList)
+            self.cnx_.commit()
+        except mysql.connector.Error as err:
+                print(err.msg)
+                return False
+        return True
 
 
+    # def updateRow(self, tabName, colList, ignoreHeader=True, toPrint=False):
+    #     insert = INSERT INTO tabName(colList)
+    #                 VALUES(? * LENGTH(colList))
+    #     return self.sqlExecute(insert, toPrint)
 
-sql = MySql(user='ngovindaraj', passwd='the rock', db='sf')
-sql.connect()
 
-print "Creating nodes table:"
-sql.createTable('nodes',
-                ['id BIGINT PRIMARY KEY NOT NULL',
-                 'lat REAL',
-                 'lon REAL',
-                 'user VARCHAR(36)',
-                 'uid INTEGER',
-                 'version INTEGER',
-                 'changeset INTEGER',
-                 'timestamp VARCHAR(36)'])
-sql.loadCSV('nodes.csv', 'nodes',
-            'id, lat, lon, user, uid, version, changeset, timestamp')
+# Given a name, get corresponding name_id from 'names' table
+# if name is already found, just 'select' the name_id
+# if name is not found, insert name/name_id and return name_id
+def populateName(nameStr):
+    pass
 
-print "Creating nodes_tags table:"
-sql.createTable('nodes_tags',
-                ['id BIGINT',
-                 '`key` VARCHAR(36)',
-                 'value VARCHAR(40)',
-                 'type VARCHAR(10)',
-                 'FOREIGN KEY (id) REFERENCES nodes(id)'])
-sql.loadCSV('nodes_tags.csv', 'nodes_tags', 'id, `key`, value, type')
 
-print "Creating ways table:"
-sql.createTable('ways',
-                ['id BIGINT PRIMARY KEY NOT NULL',
-                 'user VARCHAR(36)',
-                 'uid INTEGER',
-                 'version VARCHAR(36)',
-                 'changeset INTEGER',
-                 'timestamp VARCHAR(36)'])
-sql.loadCSV('ways.csv', 'ways', 'id, user, uid, version, changeset, timestamp')
+def create_mysql_connection():
+    sql = MySql(user='ngovindaraj', passwd='the rock', db='imdb')
+    sql.connect()
+    return sql
 
-print "Creating ways_tags table:"
-sql.createTable('ways_tags',
-                ['id BIGINT NOT NULL',
-                 '`key` VARCHAR(36)',
-                 'value VARCHAR(36)',
-                 'type VARCHAR(10)',
-                 'FOREIGN KEY (id) REFERENCES ways(id)'])
-sql.loadCSV('ways_tags.csv', 'ways_tags', 'id, `key`, value, type')
 
-print "Creating ways_nodes table:"
-sql.createTable('ways_nodes',
-                ['id BIGINT NOT NULL',
-                 'node_id BIGINT NOT NULL',
-                 'position INTEGER NOT NULL',
-                 'FOREIGN KEY (id) REFERENCES ways(id)',
-                 'FOREIGN KEY (node_id) REFERENCES nodes(id)'])
-sql.loadCSV('ways_nodes.csv', 'ways_nodes', 'id, node_id, position')
+def create_imdb_tables(sql):
+    sql.createTable('movie', ['movie_id int(6) PRIMARY KEY NOT NULL',
+                              'movie_title varchar(100) NOT NULL',
+                              'genre varchar(100) NOT NULL',
+                              'runtime int NOT NULL',
+                              'release_dt date DEFAULT NULL'])
+
+    sql.createTable('rating', ['movie_id int(6) PRIMARY KEY NOT NULL',
+                               'mpaa_rating varchar(30) NOT NULL',
+                               'user_rating float NOT NULL',
+                               'total_votes bigint NOT NULL',
+                               'critic_score int(4) NOT NULL'])
+
+    sql.createTable('money',  ['movie_id int(6) PRIMARY KEY NOT NULL',
+                               'budget varchar(100) NOT NULL',
+                               'us_boxoffice_gross varchar(50) NOT NULL'])
+
+    sql.createTable('people', ['movie_id int(6) PRIMARY KEY NOT NULL',
+                               'director_id int NOT NULL',
+                               'writer_id int NOT NULL',
+                               'actor1_id int NOT NULL',
+                               'actor2_id int NOT NULL',
+                               'actor3_id int NOT NULL'])
+
+    sql.createTable('names', ['name_id int PRIMARY KEY NOT NULL',
+                              'names varchar(100) NOT NULL'])
+
+
+def insert_imdb_movie(sql, row_tuple):
+    return sql.insertRow(
+        "movie",
+        'movie_id, movie_title, genre, runtime, release_dt',
+        '%s, %s, %s, %s, %s',
+        [row_tuple])
+
+
+def insert_imdb_rating(sql, row_tuple):
+    return sql.insertRow(
+        "rating",
+        'movie_id, mpaa_rating, user_rating, total_votes, critic_score',
+        '%s, %s, %s, %s, %s',
+        [row_tuple])
+
+
+def insert_imdb_money(sql, row_tuple):
+    return sql.insertRow(
+        "money",
+        'movie_id, budget, us_boxoffice_gross',
+        '%s, %s, %s',
+        [row_tuple])
+
+
+def insert_imdb_people(sql, row_tuple):
+    return sql.insertRow(
+        "people",
+        'movie_id, director_id, writer_id, actor1_id, actor2_id, actor3_id',
+        '%s, %s, %s, %s, %s, %s',
+        [row_tuple])
+
+
+def insert_imdb_names(sql, row_tuple):
+    return sql.insertRow(
+        "names",
+        'name_id, names',
+        '%s, %s',
+        [row_tuple])
+
+# # Insert test code
+# sql = create_mysql_connection()
+# insert_imdb_movie(sql, (1, 'abc', 'A', 10, '1994-05-10'))
+# insert_imdb_rating(sql, (2, 'efg', 10.0, 20, 10))
+# insert_imdb_money(sql, (2, 'efg', 'B'))
+# insert_imdb_people(sql, (2, 10, 20, 30, 40, 50))
+# insert_imdb_names(sql, (2, 'efg'))
+# print('Done')

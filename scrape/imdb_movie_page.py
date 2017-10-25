@@ -8,93 +8,61 @@ List of fields we need to collect inside one page:
 '''
 
 # import libraries
-import requests
-from bs4 import BeautifulSoup
-from utils import get_page
+import re
+from utils import readURL, html2Soup, getTagText
+from sql_db import MySql
+
+html2 = readURL('/Users/navina/Desktop/movie1.htm')
+individual_movie_pg = html2Soup(html).find(id="main")
+sql = MySql(user='ngovindaraj', passwd='the rock', db='imdb')
+sql.connect()
+
+
+
+def process_movie_page(mv):
+    budget = getTagText(mv.find(
+        "span", class_="lister-item-index unbold text-primary"))
+    release_dt = getTagText(mv.find("h3", class_="lister-item-header").find("a"))
+    writer = getTagText(mv.find("span", class_="certificate"))
+    opening_weekend_gross =
+
+    print("Budget: {}".format(budget))
+    print("Release Date: {}".format(release_dt))
+    print("Writer: {}".format(writer))
+    print("Opening Weekend Gross: {}".format(opening_weekend_gross))
+
 
 '''
-# attributes from url2
-
-#director = soup2.find("span", "itemprop").find(itemprop="director").get_text()
-#print(director)
-
-total_votes = soup2.find("span", {"itemprop": "ratingCount"}).get_text()
-print(total_votes)
-
-#us_boxoffice_gross = soup2.find("div", "article").get_text()
-#print(us_boxoffice_gross)
-
-stars = soup2.find("span", {"itemprop": "actors"}).get_text()
-print(stars)
-
-box_office = soup2.find("")
-budget = soup2.find("span", {"itemprop": "actors"}).get_text()
-print(budget)
-
-release_date = soup2.find("a", {"title": "See more release dates"}).get_text()
-print(release_date)
-
-writer = soup2.find("span", {"itemprop": "creator"}).get_text()
-print(writer)
-
-opening_weekend_gross = soup2.find("span", {"itemprop": "creator"}).get_text()
-print(opening_weekend_gross)
-'''
-
-
-
-def process_movie_main_link(mv):
-    sno = mv.find("span", "lister-item-index unbold text-primary").get_text()
-    title = mv.find("h3", "lister-item-header").find("a").get_text()
-    mpaa_rating = mv.find("span", "certificate").get_text()
-    metascore = mv.find("span", "metascore").get_text()
-    user_rating = mv.find("div", "inline-block ratings-imdb-rating").get_text()
-    genre = mv.find("span", "genre").get_text()
-    runtime = first_movie.find("span", "runtime").get_text()
-    print("{sn}. {title} ({genre}) has following parameters:".format(
-        sn=sno, title=title))
-    print("   mpaa={mpaa}, rating({critic} {user}), score={score}, runtime={run}"
-    #add to mysql
-
-
-main_section = soup.find(id="main")
-all_movie_tags = main_section.select(".article .lister-item-content")
-for each movie in all_movie_tags:
-    process_movie_main_link(movie)
-    break
-
-
 #url2
 
-# titlebar = soup.find("div", "titleBar")
-# print(type(titlebar))
+movie_pg_top_half = soup2.find(id="main_top")
+movie_pg_bottom_half = soup2.find(id="main_bottom")
+top_half_tags = movie_pg_top_half.select(".title_overview .title_bar_wrapper")
+bottom_half_tags = movie_pg_bottom_half.select("")
+print(top_half_tags)
 
-#titlebar_tags = titlebar.select(".div .subtext")
-#first_movie_titlebar = titlebar_tags[0]
-#print(first_movie_titlebar)
+
+
+for tag in titlebar_tags:
+    process_individual_movie(tag)
 '''
-director = soup2.find("span", "itemprop").find(itemprop="director").get_text()
-#print(director)
 
-total_votes = soup2.find("span", {"itemprop": "ratingCount"}).get_text()
-print(total_votes)
 
-#us_boxoffice_gross = soup2.find("div", "article").get_text()
-#print(us_boxoffice_gross)
+#director = top_half_tags.find("div", "credit_summary_item").find("span", "itemprop").get_text()
+#print("Director: {}".format(director))
 
-stars = soup2.find("span", {"itemprop": "actors"}).get_text()
-print(stars)
+#stars = soup2.find("span", {"itemprop": "actors"}).get_text()
+#print(stars)
 
-box_office = soup2.find("")
-budget = soup2.find("span", {"itemprop": "actors"}).get_text()
-print(budget)
+#box_office = soup2.find("")
+#budget = soup2.find("span", {"itemprop": "actors"}).get_text()
+#print(budget)
 
-release_date = soup2.find("a", {"title": "See more release dates"}).get_text()
-print(release_date)
+#release_date = soup2.find("a", {"title": "See more release dates"}).get_text()
+#print(release_date)
 
-writer = soup2.find("span", {"itemprop": "creator"}).get_text()
-print(writer)
+#writer = soup2.find("span", {"itemprop": "creator"}).get_text()
+#print(writer)
 
-opening_weekend_gross = soup2.find("span", {"itemprop": "creator"}).get_text()
-print(opening_weekend_gross)
-'''
+#opening_weekend_gross = soup2.find("span", {"itemprop": "creator"}).get_text()
+#print(opening_weekend_gross)
