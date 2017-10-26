@@ -32,6 +32,17 @@ class MySql(object):
             return False
         return True
 
+    def sqlSelect(self, tabName, colNames, whereCond, toPrint=False):
+        execStr = 'SELECT {col} FROM {table} WHERE {cond}'.format(
+            col=colNames, table=tabName, cond=whereCond)
+        try:
+            self.sqlExecute(execStr, toPrint)
+            ret = self.cursor_.fetchall()  # fetch answers
+            return ret
+        except mysql.connector.Error as err:
+            print(err.msg)
+            return None
+
     # Connect to MySQL Database
     def connect(self):
         self.cnx_ = mysql.connector.connect(host=self.host_,
@@ -61,17 +72,7 @@ class MySql(object):
         return True
 
 
-    # def updateRow(self, tabName, colList, ignoreHeader=True, toPrint=False):
-    #     insert = INSERT INTO tabName(colList)
-    #                 VALUES(? * LENGTH(colList))
-    #     return self.sqlExecute(insert, toPrint)
-
-
-# Given a name, get corresponding name_id from 'names' table
-# if name is already found, just 'select' the name_id
-# if name is not found, insert name/name_id and return name_id
-def populateName(nameStr):
-    pass
+name_id_ctr = 468
 
 
 def create_mysql_connection():
@@ -85,7 +86,7 @@ def create_imdb_tables(sql):
                               'movie_title varchar(100) NOT NULL',
                               'genre varchar(100) NOT NULL',
                               'runtime int NOT NULL',
-                              'release_dt date DEFAULT NULL'])
+                              'release_dt varchar(100) DEFAULT NULL'])
 
     sql.createTable('rating', ['movie_id int(6) PRIMARY KEY NOT NULL',
                                'mpaa_rating varchar(30) NOT NULL',
@@ -99,7 +100,8 @@ def create_imdb_tables(sql):
 
     sql.createTable('people', ['movie_id int(6) PRIMARY KEY NOT NULL',
                                'director_id int NOT NULL',
-                               'writer_id int NOT NULL',
+                               'writer1_id int NOT NULL',
+                               'writer2_id int NOT NULL',
                                'actor1_id int NOT NULL',
                                'actor2_id int NOT NULL',
                                'actor3_id int NOT NULL'])
@@ -135,23 +137,40 @@ def insert_imdb_money(sql, row_tuple):
 def insert_imdb_people(sql, row_tuple):
     return sql.insertRow(
         "people",
-        'movie_id, director_id, writer_id, actor1_id, actor2_id, actor3_id',
-        '%s, %s, %s, %s, %s, %s',
+        'movie_id, director_id, writer1_id, writer2_id, actor1_id, actor2_id, actor3_id',
+        '%s, %s, %s, %s, %s, %s, %s',
         [row_tuple])
 
 
-def insert_imdb_names(sql, row_tuple):
+def insert_imdb_name(sql, row_tuple):
     return sql.insertRow(
         "names",
         'name_id, names',
         '%s, %s',
         [row_tuple])
 
-# # Insert test code
+
+# Given a name, get corresponding name_id from 'names' table
+# if name is already found, just 'select' the name_id
+# if name is not found, insert name/name_id and return name_id
+def populateName(sql, nameStr):
+    global name_id_ctr
+    name_id = sql.sqlSelect(
+        'names', 'name_id', 'names="{}"'.format(nameStr))
+    if not name_id:
+        insert_imdb_name(sql, (name_id_ctr, nameStr))
+        name_id = name_id_ctr
+        name_id_ctr += 1
+        return name_id
+    else:
+        return name_id[0][0]  # To get value inside list of tuples
+
+
+# Insert test code
 # sql = create_mysql_connection()
 # insert_imdb_movie(sql, (1, 'abc', 'A', 10, '1994-05-10'))
 # insert_imdb_rating(sql, (2, 'efg', 10.0, 20, 10))
 # insert_imdb_money(sql, (2, 'efg', 'B'))
-# insert_imdb_people(sql, (2, 10, 20, 30, 40, 50))
-# insert_imdb_names(sql, (2, 'efg'))
+# insert_imdb_people(sql, (2, 10, 20, 30, 40, 50, 60))
+# print(populateName(sql, 'efg'))
 # print('Done')

@@ -4,65 +4,45 @@ List of fields we need to collect inside one page:
 - Production Company - Enum --not doing
 - Release Date  - Date/Time
 - Writer             - Enum
-- Opening Weekend$   - Int
+- Opening Weekend$   - Int -- not doing
 '''
 
-# import libraries
 import re
 from utils import readURL, html2Soup, getTagText
-from sql_db import MySql
-
-html2 = readURL('/Users/navina/Desktop/movie1.htm')
-individual_movie_pg = html2Soup(html).find(id="main")
-sql = MySql(user='ngovindaraj', passwd='the rock', db='imdb')
-sql.connect()
 
 
-
-def process_movie_page(mv):
-    budget = getTagText(mv.find(
-        "span", class_="lister-item-index unbold text-primary"))
-    release_dt = getTagText(mv.find("h3", class_="lister-item-header").find("a"))
-    writer = getTagText(mv.find("span", class_="certificate"))
-    opening_weekend_gross =
-
-    print("Budget: {}".format(budget))
-    print("Release Date: {}".format(release_dt))
-    print("Writer: {}".format(writer))
-    print("Opening Weekend Gross: {}".format(opening_weekend_gross))
+# Get the 2nd writier for a movie if one exists
+def get_second_writer(mv):
+    try:
+        return mv.find_all('a', href=re.compile('tt_ov_wr'))[1]
+    except IndexError:
+        return None
 
 
-'''
-#url2
-
-movie_pg_top_half = soup2.find(id="main_top")
-movie_pg_bottom_half = soup2.find(id="main_bottom")
-top_half_tags = movie_pg_top_half.select(".title_overview .title_bar_wrapper")
-bottom_half_tags = movie_pg_bottom_half.select("")
-print(top_half_tags)
+def get_budget(mv):
+    try:
+        return mv.find(text=re.compile("Budget:")).next.strip()
+    except:
+        return 'Empty'
 
 
+def process_one_movie_url(url):
+    url = 'http://www.imdb.com' + url
+    html = readURL(url)
+    movie_section = html2Soup(html).find(id="pagecontent")
+    mv = movie_section.select(".flatland")[0]
+    budget = get_budget(mv)
+    release_dt = ' '.join(mv.find(
+        text=re.compile("Release Date:")).next.split()[:3])
+    writer1 = getTagText(mv.find('a', href=re.compile('tt_ov_wr')))
+    writer2 = getTagText(get_second_writer(mv))
+    return budget, release_dt, writer1, writer2
 
-for tag in titlebar_tags:
-    process_individual_movie(tag)
-'''
 
-
-#director = top_half_tags.find("div", "credit_summary_item").find("span", "itemprop").get_text()
-#print("Director: {}".format(director))
-
-#stars = soup2.find("span", {"itemprop": "actors"}).get_text()
-#print(stars)
-
-#box_office = soup2.find("")
-#budget = soup2.find("span", {"itemprop": "actors"}).get_text()
-#print(budget)
-
-#release_date = soup2.find("a", {"title": "See more release dates"}).get_text()
-#print(release_date)
-
-#writer = soup2.find("span", {"itemprop": "creator"}).get_text()
-#print(writer)
-
-#opening_weekend_gross = soup2.find("span", {"itemprop": "creator"}).get_text()
-#print(opening_weekend_gross)
+# Test
+# budget, release_dt, writer1, writer2 = process_one_movie_url(
+#     '/Users/navina/Desktop/movie1.htm')
+# print("Budget: {}".format(budget))
+# print("Release Date: {}".format(release_dt))
+# print("Writer1: {}".format(writer1))
+# print("Writer2: {}".format(writer2))

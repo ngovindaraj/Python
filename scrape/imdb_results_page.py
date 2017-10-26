@@ -18,21 +18,20 @@ List of 100s:
 # import libraries
 import re
 from utils import readURL, html2Soup, getTagText, getInt, getFloat
-# from sql_db import MySql
-
-
-
+from imdb_movie_page import process_one_movie_url
+from sql_db import (
+    create_mysql_connection, insert_imdb_movie, insert_imdb_rating,
+    insert_imdb_money, insert_imdb_people, populateName
+)
 
 '''
 sql = MySql(user='ngovindaraj', passwd='the rock', db='imdb')
 sql.connect()
 '''
 
-#0) Get URL of movie page
-#1) Create SQL tables in 3NF
-#2) Insert dummy values
-#3) Hook up insert_one_movie_into_mysql() to insert 100 movies into MySQL
-#4) Use Request, to get all 12K Movies into MySQL
+# 1) Given URL of movie, get HTML and extract fields
+# 2) Now that we have all actual values, insert them into MySQL
+# 3) Hit prod !
 
 
 # Create all the tables that we need for results page
@@ -46,26 +45,41 @@ def get_urls():
 
 
 def insert_one_movie_into_mysql(
-    sno, title, mpaa_rating, metascore,
+    sql, sno, title, mpaa_rating, metascore,
     user_rating, genre, runtime, votes_count, us_box_gross, director,
-    star1, star2, star3, movie_url):
-    print("{sno}. {title} has rating {mpaa}".format(
-        sno=sno, title=title, mpaa=mpaa_rating))
-    print("Metascore: {}".format(metascore))
-    print("User Rating: {}".format(user_rating))
-    print("Genre: {}".format(genre))
-    print("Runtime: {}".format(runtime))
-    print("Votes Count: {}".format(votes_count))
-    print("US Box Office Gross: {}".format(us_box_gross))
-    print("Director: {dir} Stars: {s1}, {s2}, {s3}".format(
-        dir=director, s1=star1, s2=star2, s3=star3))
-    print("Movie URL: {}".format(movie_url))
-    #sql.insertRow()
+    star1, star2, star3, movie_url, budget, release_dt, writer1, writer2):
+    # print("{sno}. {title} has rating {mpaa}".format(
+    #     sno=sno, title=title, mpaa=mpaa_rating))
+    # print("Metascore: {}".format(metascore))
+    # print("User Rating: {}".format(user_rating))
+    # print("Genre: {}".format(genre))
+    # print("Runtime: {}".format(runtime))
+    # print("Votes Count: {}".format(votes_count))
+    # print("US Box Office Gross: {}".format(us_box_gross))
+    # print("Director: {dir} Stars: {s1}, {s2}, {s3}".format(
+    #     dir=director, s1=star1, s2=star2, s3=star3))
+    # print("Movie URL: {}".format(movie_url))
+    # print("Budget: {}".format(budget))
+    # print("Release Date: {}".format(release_dt))
+    # print("Writer1: {}".format(writer1))
+    # print("Writer2: {}".format(writer2))
+    director_id = populateName(sql, director)
+    star1_id    = populateName(sql, star1)
+    star2_id    = populateName(sql, star2)
+    star3_id    = populateName(sql, star3)
+    writer1_id  = populateName(sql, writer1)
+    writer2_id  = populateName(sql, writer2)
+    insert_imdb_movie(sql, (sno, title, genre, runtime, release_dt))
+    insert_imdb_rating(sql, (sno, mpaa_rating, user_rating, votes_count,
+                             metascore))
+    insert_imdb_money(sql, (sno, budget, us_box_gross))
+    insert_imdb_people(sql, (sno, director_id, writer1_id, writer2_id,
+                             star1_id, star2_id, star3_id))
 
 
 # For each movie use BeautifulSoup find() to get all the relevant fields.
 # After processing one movie, insert it to MySQL
-def process_results_one_movie(mv):
+def process_results_one_movie(sql, mv):
     sno = getTagText(mv.find(
         "span", class_="lister-item-index unbold text-primary"))
     title = getTagText(mv.find("h3", class_="lister-item-header").find("a"))
@@ -87,18 +101,22 @@ def process_results_one_movie(mv):
     star2 = getTagText(mv.find('a', href=re.compile('adv_li_st_1')))
     star3 = getTagText(mv.find('a', href=re.compile('adv_li_st_2')))
     movie_url = mv.find('a', href=re.compile('/title/'))['href']
+    budget, release_dt, writer1, writer2 = process_one_movie_url(
+        movie_url)
     insert_one_movie_into_mysql(
-        sno, title, mpaa_rating, metascore,
+        sql, sno, title, mpaa_rating, metascore,
         user_rating, genre, runtimeNum, votes_count, us_box_gross, director,
-        star1, star2, star3, movie_url)
+        star1, star2, star3, movie_url, budget, release_dt, writer1, writer2)
 
 
-def process_results_page(url):
+def process_results_page(sql, url):
     html = readURL(url)
     main_section = html2Soup(html).find(id="main")
     for each_movie in main_section.select(".article .lister-item-content"):
-        process_results_one_movie(each_movie)
+        process_results_one_movie(sql, each_movie)
         # break
 
 
-# process_results_page('/Users/navina/Desktop/imdb_test.htm')
+# test
+# sql = create_mysql_connection()
+# process_results_page(sql, '/Users/navina/Desktop/imdb_test.htm')
