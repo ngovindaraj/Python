@@ -26,17 +26,27 @@ def get_budget(mv):
         return 'Empty'
 
 
+def get_release_dt(mv):
+    try:
+        return ' '.join(mv.find(
+            text=re.compile("Release Date:")).next.split()[:3])
+    except:
+        return 'Empty'
+
+
 def process_one_movie_url(url):
     url = 'http://www.imdb.com' + url
     html = readURL(url)
-    movie_section = html2Soup(html).find(id="pagecontent")
-    mv = movie_section.select(".flatland")[0]
-    budget = get_budget(mv)
-    release_dt = ' '.join(mv.find(
-        text=re.compile("Release Date:")).next.split()[:3])
-    writer1 = getTagText(mv.find('a', href=re.compile('tt_ov_wr')))
-    writer2 = getTagText(get_second_writer(mv))
-    return budget, release_dt, writer1, writer2
+    if html is None:
+        return None, None, None, None
+    else:
+        movie_section = html2Soup(html).find(id="pagecontent")
+        mv = movie_section.select(".flatland")[0]
+        budget = get_budget(mv)
+        release_dt = get_release_dt(mv)
+        writer1 = getTagText(mv.find('a', href=re.compile('tt_ov_wr')))
+        writer2 = getTagText(get_second_writer(mv))
+        return budget, release_dt, writer1, writer2
 
 
 # Test

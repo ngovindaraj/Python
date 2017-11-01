@@ -72,7 +72,7 @@ class MySql(object):
         return True
 
 
-name_id_ctr = 468
+name_id_ctr = 8205
 
 
 def create_mysql_connection():
@@ -82,23 +82,23 @@ def create_mysql_connection():
 
 
 def create_imdb_tables(sql):
-    sql.createTable('movie', ['movie_id int(6) PRIMARY KEY NOT NULL',
+    sql.createTable('movie', ['movie_id int PRIMARY KEY NOT NULL',
                               'movie_title varchar(100) NOT NULL',
                               'genre varchar(100) NOT NULL',
                               'runtime int NOT NULL',
                               'release_dt varchar(100) DEFAULT NULL'])
 
-    sql.createTable('rating', ['movie_id int(6) PRIMARY KEY NOT NULL',
-                               'mpaa_rating varchar(30) NOT NULL',
+    sql.createTable('rating', ['movie_id int PRIMARY KEY NOT NULL',
+                               'mpaa_rating varchar(100) NOT NULL',
                                'user_rating float NOT NULL',
                                'total_votes bigint NOT NULL',
-                               'critic_score int(4) NOT NULL'])
+                               'critic_score int NOT NULL'])
 
-    sql.createTable('money',  ['movie_id int(6) PRIMARY KEY NOT NULL',
+    sql.createTable('money',  ['movie_id int PRIMARY KEY NOT NULL',
                                'budget varchar(100) NOT NULL',
-                               'us_boxoffice_gross varchar(50) NOT NULL'])
+                               'us_boxoffice_gross varchar(200) NOT NULL'])
 
-    sql.createTable('people', ['movie_id int(6) PRIMARY KEY NOT NULL',
+    sql.createTable('people', ['movie_id int PRIMARY KEY NOT NULL',
                                'director_id int NOT NULL',
                                'writer1_id int NOT NULL',
                                'writer2_id int NOT NULL',
@@ -107,7 +107,9 @@ def create_imdb_tables(sql):
                                'actor3_id int NOT NULL'])
 
     sql.createTable('names', ['name_id int PRIMARY KEY NOT NULL',
-                              'names varchar(100) NOT NULL'])
+                              'names varchar(200) NOT NULL'])
+
+
 
 
 def insert_imdb_movie(sql, row_tuple):

@@ -29,20 +29,6 @@ sql = MySql(user='ngovindaraj', passwd='the rock', db='imdb')
 sql.connect()
 '''
 
-# 1) Given URL of movie, get HTML and extract fields
-# 2) Now that we have all actual values, insert them into MySQL
-# 3) Hit prod !
-
-
-# Create all the tables that we need for results page
-def create_sql_tables():
-    pass
-
-
-def get_urls():
-    movie_url = mv.find('a', href=re.compile('/title/'))
-    print(movie_url)
-
 
 def insert_one_movie_into_mysql(
     sql, sno, title, mpaa_rating, metascore,
@@ -77,25 +63,48 @@ def insert_one_movie_into_mysql(
                              star1_id, star2_id, star3_id))
 
 
+def get_votes(mv):
+    try:
+        votes = getTagText(mv.find(
+            "p", class_="sort-num_votes-visible"))
+        votes_count = 0
+        if votes is not 'Empty':
+            votes_count = getInt(votes.split()[1].replace(',', ''))
+        return votes_count
+    except (IndexError, ValueError):
+        return 0
+
+def get_user_rating(mv):
+    user_rating = mv.find(
+        "div",
+        class_="inline-block ratings-imdb-rating")
+    user_rating_num = 0
+    if user_rating is not None:
+        user_rating_num = getFloat(getTagText(user_rating.find("strong")))
+    return user_rating_num
+
+def get_us_box_gross(mv):
+    try:
+        getTagText(mv.find(
+            "p", class_="sort-num_votes-visible")).split()[-1]
+    except IndexError:
+        return 'Empty'
+
+
 # For each movie use BeautifulSoup find() to get all the relevant fields.
 # After processing one movie, insert it to MySQL
 def process_results_one_movie(sql, mv):
-    sno = getTagText(mv.find(
-        "span", class_="lister-item-index unbold text-primary"))
+    sno = getInt(getTagText(mv.find(
+        "span", class_="lister-item-index unbold text-primary")))
     title = getTagText(mv.find("h3", class_="lister-item-header").find("a"))
     mpaa_rating = getTagText(mv.find("span", class_="certificate"))
     metascore = getInt(getTagText(mv.find("span", class_="metascore")))
-    user_rating = getFloat(getTagText(mv.find(
-        "div",
-        class_="inline-block ratings-imdb-rating").find("strong")))
+    user_rating = get_user_rating(mv)
     genre = getTagText(mv.find("span", class_="genre"))
     runtime = getTagText(mv.find("span", class_="runtime"))
     runtimeNum = getInt(runtime.split()[0])
-    votes = getTagText(mv.find(
-        "p", class_="sort-num_votes-visible")).split()[1]
-    votes_count = getInt(votes.replace(',', ''))
-    us_box_gross = getTagText(mv.find(
-        "p", class_="sort-num_votes-visible")).split()[-1]
+    votes_count = get_votes(mv)
+    us_box_gross = get_us_box_gross(mv)
     director = getTagText(mv.find('a', href=re.compile('adv_li_dr_0')))
     star1 = getTagText(mv.find('a', href=re.compile('adv_li_st_0')))
     star2 = getTagText(mv.find('a', href=re.compile('adv_li_st_1')))
@@ -114,9 +123,8 @@ def process_results_page(sql, url):
     main_section = html2Soup(html).find(id="main")
     for each_movie in main_section.select(".article .lister-item-content"):
         process_results_one_movie(sql, each_movie)
-        # break
 
 
 # test
 # sql = create_mysql_connection()
-# process_results_page(sql, '/Users/navina/Desktop/imdb_test.htm')
+# process_results_page(sql, '/Users/navina/Desktop/test.html')
