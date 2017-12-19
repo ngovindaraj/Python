@@ -11,7 +11,7 @@ Your algorithm should have a linear runtime complexity.
 Could you implement it without using extra memory?
 '''
 
-#Use a dictionary with the following operations:
+# Approach 1: Use a dictionary with the following operations:
 # - If elem not in dictionary (1st occur), add it to dictionary
 # - If elem in dictionary (2nd occurence), remove it from dictionary
 # The only element left in dictionary is the non-duplicate number
@@ -24,3 +24,7 @@ def singleNumber(self, nums):
   #Only element left in dictionary is the single number
   for key in dict:      return key
 
+  # Approach 2: lambda operator with reduce function - without using extra memory
+  # x ^ y - Does a "bitwise exclusive or"
+  def singleNumber4(self, nums):
+    return reduce(lambda x, y: x ^ y, nums)
