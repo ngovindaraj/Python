@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [20 Leetcode solutions](./) with comments.
+This is a collection of my [22 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -53,6 +53,7 @@ Data Structure based
 |1. | Easy       | Binary Tree [Max](https://leetcode.com/problems/maximum-depth-of-binary-tree/)/[Min](https://leetcode.com/problems/minimum-depth-of-binary-tree/) depth ([solution](./ds_tree_max_min_depth.py))        |
 |2. | Easy       | [Is Height Balanced BT](https://leetcode.com/problems/balanced-binary-tree/) ([solution](./ds_tree_height_balanced.py))     |
 |3. | Easy       | [Same Tree](https://leetcode.com/problems/same-tree/) ([solution](./ds_tree_same_tree.py))       |
+|4. | Easy       | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree) ([solution](./ds_tree_validate_bs.py))     |
 
 ----------------------------------------------------------------------------------------
 Math based
