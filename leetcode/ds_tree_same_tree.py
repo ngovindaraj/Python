@@ -11,10 +11,12 @@ identical and the nodes have the same value.
 '''
 
 def isSameTree(self, p, q):
-  if p == None or q == None : return p == q
-  elif p.val != q.val       : return False
-  elif self.isSameTree(p.left, q.left) == False: return False
-  else:                       return self.isSameTree(p.right, q.right)
+  if p is None and q is None:
+    return True
+  elif p and q:
+    return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+  else:
+    return False
         
 # [1, 2, 3], [1, 2, 3],  true
 # [10,5,15], [10,5,null,null,15],   false
