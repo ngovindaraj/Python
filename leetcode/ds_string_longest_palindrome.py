@@ -23,9 +23,9 @@ def longestPalindrome(self, s):
     for k, v in dict.items():
         length += (v/2) *2
         odd = odd | (v % 2)
-        if odd == True:
-            length += 1
-        return length
+    if odd == True:
+        length += 1
+    return length
 
 # Approach 2: math based using collections
 # time complexity: O(n), space complexity: O(1)
