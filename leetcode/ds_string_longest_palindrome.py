@@ -13,6 +13,7 @@ Assume the length of given string will not exceed 1,010.
 '''
 
 # Approach 1: dictionary
+# time complexity: O(n), space complexity: O(1)
 def longestPalindrome(self, s):
     length = 0
     odd = False
@@ -27,6 +28,7 @@ def longestPalindrome(self, s):
         return length
 
 # Approach 2: math based using collections
+# time complexity: O(n), space complexity: O(1)
 import collections
 def longestPalindrome2(self, s):
     odds = sum(v & 1 for v in collections.Counter(s).values())
