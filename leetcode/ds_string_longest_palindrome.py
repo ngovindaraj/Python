@@ -1,7 +1,7 @@
 # @file  Longest Palindrome
 # @brief given string, find length of longest possible palindrome
 
-# https://leetcode.com/problems/reverse-vowels-of-a-string/
+# https://leetcode.com/problems/longest-palindrome
 
 '''
 Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
