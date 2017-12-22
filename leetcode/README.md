@@ -23,6 +23,7 @@ Data Structure based
 |1. | Easy       | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) ([solution](./ds_list_contains_duplicate.py)) |
 |2. | Easy       | [Contains DuplicateII](https://leetcode.com/problems/contains-duplicate-ii/) ([solution](./ds_list_contains_duplicateII.py)) |
 |3. | Medium       | [Rotated Sorted ArrayII](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) ([solution](./ds_list_rotated_sorted_arrayII.py)) |
+|4. | Easy       | [Array PartitionI](https://leetcode.com/problems/array-partition-i/) ([solution](./ds_list_array_partitionI.py)) |
 
 
 **Hash Table (Dictionary)**
