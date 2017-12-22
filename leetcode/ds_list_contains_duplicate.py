@@ -33,13 +33,14 @@ def containsDuplicate2(self, nums):
     return False
 
 
-# Dictionary approach (complexity: time = O(n), space = O(n))
+# Dictionary approach
+#Use a dictionary to store all numbers. If a number is seen 2nd time return immediately
+#Time Complexity = O(n)   since we have a single for-loop to look at all numbers
 def containsDuplicate3(self, nums):
     dict = {}
-    for elem in nums:
-        dict[elem] = dict.get(elem, 0) + 1
-        if dict[elem] > 1:
-            return True
+    for num in nums:
+        if num not in dict:  dict[num] = 1
+        elif num   in dict:  return True
     return False
 
 
