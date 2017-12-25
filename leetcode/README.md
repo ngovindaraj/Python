@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [22 Leetcode solutions](./) with comments.
+This is a collection of my [39 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -13,6 +13,15 @@ Algorithm based
 |3. | Easy     | [Search insert position](https://leetcode.com/problems/search-insert-position/) ([solution](./algo_dc_search_insert_position.py))                |
 |4. | Easy     |  [Missing Number](https://leetcode.com/problems/missing-number/) ([solution](./algo_dc_missing_number.py))          |
 
+
+**Dynamic Programming**
+|#  | Difficulty | Problem and Solution                                                           |
+|:--|:-----------|:-------------------------------------------------------------------------------|
+|1. | Medium     | [Decode Ways](https://leetcode.com/problems/decode-ways) ([solution]())        |
+
+
+
+
 ----------------------------------------------------------------------------------------
 Data Structure based
 --------------------------------------------
@@ -24,6 +33,8 @@ Data Structure based
 |2. | Easy       | [Contains DuplicateII](https://leetcode.com/problems/contains-duplicate-ii/) ([solution](./ds_list_contains_duplicateII.py)) |
 |3. | Medium       | [Rotated Sorted ArrayII](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) ([solution](./ds_list_rotated_sorted_arrayII.py)) |
 |4. | Easy       | [Array PartitionI](https://leetcode.com/problems/array-partition-i/) ([solution](./ds_list_array_partitionI.py)) |
+|5. | Medium     | [Kth Largest Element](https://leetcode.com/problems/kth-largest-element-in-an-array) ([solution]()) |
+|6. | Medium     | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) ([solution]()) |
 
 
 **Hash Table (Dictionary)**
@@ -43,7 +54,11 @@ Data Structure based
 |3. | Easy       | [Number of Segments](https://leetcode.com/problems/number-of-segments-in-a-string/) ([solution](./ds_string_num_segments.py))      |
 |4. | Easy       | [Substring Search(strstr)](https://leetcode.com/problems/implement-strstr/) ([solution](./ds_string_strstr.py)) |
 |5. | Easy       | [Word Pattern](https://leetcode.com/problems/word-pattern/) ([solution](./ds_string_word_pattern.py))           |
-|6. | Easy       | [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) ([solution](./ds_string_longest_palindrome.py))           |
+|6. | Easy       | [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) ([solution](./ds_string_longest_palindrome.py))|
+|7. | Easy     | [Ransom Note](https://leetcode.com/problems/ransom-note/) ([solution]())   |
+|8. | Easy     | [Valid Word Abbreviation](https://leetcode.com/problems/valid-word-abbreviation/) ([solution]())   |
+|9. | Medium     | [Is Subsequence](https://leetcode.com/problems/is-subsequence/) ([solution]())   |
+|10. | Medium     | [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/) ([solution]())   |
 
 
 **Tree**
