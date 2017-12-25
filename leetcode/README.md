@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [29 Leetcode solutions](./) with comments.
+This is a collection of my [32 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -58,8 +58,11 @@ Data Structure based
 |6. | Easy       | [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) ([solution](./ds_string_longest_palindrome.py))|
 |7. | Easy     | [Ransom Note](https://leetcode.com/problems/ransom-note/) ([solution](./ds_string_ransom_note.py))   |
 |8. | Easy     | [Valid Word Abbreviation](https://leetcode.com/problems/valid-word-abbreviation/) ([solution](./ds_string_word_abbreviation.py))   |
-|9. | Medium     | [Is Subsequence](https://leetcode.com/problems/is-subsequence/) ([solution](./ds_string_is_subsequence.py))   |
-|10. | Medium     | [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/) ([solution](./ds_string_sort_by_freq.py))   |
+|9. | Easy     | [Add Binary](https://leetcode.com/problems/add-binary/) ([solution](./ds_string_add_binary.py))   |
+|10. | Easy     | [Add Strings](https://leetcode.com/problems/add-strings/) ([solution](./ds_string_add_strings.py))   |
+|11. | Easy     | [Length of Last Word](https://leetcode.com/problems/length-of-last-word/) ([solution](./ds_string_length_last_word.py))|
+|12. | Medium     | [Is Subsequence](https://leetcode.com/problems/is-subsequence/) ([solution](./ds_string_is_subsequence.py))   |
+|13. | Medium     | [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/) ([solution](./ds_string_sort_by_freq.py))   |
 
 
 **Tree**
