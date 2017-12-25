@@ -34,7 +34,7 @@ Data Structure based
 |2. | Easy       | [Contains DuplicateII](https://leetcode.com/problems/contains-duplicate-ii/) ([solution](./ds_list_contains_duplicateII.py)) |
 |3. | Medium       | [Rotated Sorted ArrayII](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) ([solution](./ds_list_rotated_sorted_arrayII.py)) |
 |4. | Easy       | [Array PartitionI](https://leetcode.com/problems/array-partition-i/) ([solution](./ds_list_array_partitionI.py)) |
-|5. | Medium     | [Kth Largest Element](https://leetcode.com/problems/kth-largest-element-in-an-array) ([solution]()) |
+|5. | Medium     | [Kth Largest Element](https://leetcode.com/problems/kth-largest-element-in-an-array) ([solution](./ds_list_kth_largest.py)) |
 |6. | Medium     | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) ([solution]()) |
 
 
@@ -56,10 +56,10 @@ Data Structure based
 |4. | Easy       | [Substring Search(strstr)](https://leetcode.com/problems/implement-strstr/) ([solution](./ds_string_strstr.py)) |
 |5. | Easy       | [Word Pattern](https://leetcode.com/problems/word-pattern/) ([solution](./ds_string_word_pattern.py))           |
 |6. | Easy       | [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/) ([solution](./ds_string_longest_palindrome.py))|
-|7. | Easy     | [Ransom Note](https://leetcode.com/problems/ransom-note/) ([solution]())   |
-|8. | Easy     | [Valid Word Abbreviation](https://leetcode.com/problems/valid-word-abbreviation/) ([solution]())   |
-|9. | Medium     | [Is Subsequence](https://leetcode.com/problems/is-subsequence/) ([solution]())   |
-|10. | Medium     | [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/) ([solution]())   |
+|7. | Easy     | [Ransom Note](https://leetcode.com/problems/ransom-note/) ([solution](./ds_string_ransom_note.py))   |
+|8. | Easy     | [Valid Word Abbreviation](https://leetcode.com/problems/valid-word-abbreviation/) ([solution](./ds_string_word_abbreviation.py))   |
+|9. | Medium     | [Is Subsequence](https://leetcode.com/problems/is-subsequence/) ([solution](./ds_string_is_subsequence.py))   |
+|10. | Medium     | [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/) ([solution](./ds_string_sort_by_freq.py))   |
 
 
 **Tree**
