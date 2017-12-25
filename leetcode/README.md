@@ -15,6 +15,7 @@ Algorithm based
 
 
 **Dynamic Programming**
+
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Medium     | [Decode Ways](https://leetcode.com/problems/decode-ways) ([solution]())        |
