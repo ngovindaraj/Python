@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [39 Leetcode solutions](./) with comments.
+This is a collection of my [29 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
