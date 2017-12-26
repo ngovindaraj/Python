@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [32 Leetcode solutions](./) with comments.
+This is a collection of my [34 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -61,8 +61,10 @@ Data Structure based
 |9. | Easy     | [Add Binary](https://leetcode.com/problems/add-binary/) ([solution](./ds_string_add_binary.py))   |
 |10. | Easy     | [Add Strings](https://leetcode.com/problems/add-strings/) ([solution](./ds_string_add_strings.py))   |
 |11. | Easy     | [Length of Last Word](https://leetcode.com/problems/length-of-last-word/) ([solution](./ds_string_length_last_word.py))|
-|12. | Medium     | [Is Subsequence](https://leetcode.com/problems/is-subsequence/) ([solution](./ds_string_is_subsequence.py))   |
-|13. | Medium     | [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/) ([solution](./ds_string_sort_by_freq.py))   |
+|12. | Easy     | [Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/) ([solution](./ds_string_palindrome_permutation.py))|
+|13. | Easy     | [Find All Anagrams](https://leetcode.com/problems/find-all-anagrams-in-a-string/) ([solution](./ds_string_find_all_anagrams.py))|
+|14. | Medium     | [Is Subsequence](https://leetcode.com/problems/is-subsequence/) ([solution](./ds_string_is_subsequence.py))   |
+|15. | Medium     | [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/) ([solution](./ds_string_sort_by_freq.py))   |
 
 
 **Tree**
