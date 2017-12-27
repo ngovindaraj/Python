@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [34 Leetcode solutions](./) with comments.
+This is a collection of my [37 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -32,10 +32,13 @@ Data Structure based
 |:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Easy       | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) ([solution](./ds_list_contains_duplicate.py)) |
 |2. | Easy       | [Contains DuplicateII](https://leetcode.com/problems/contains-duplicate-ii/) ([solution](./ds_list_contains_duplicateII.py)) |
-|3. | Medium       | [Rotated Sorted ArrayII](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) ([solution](./ds_list_rotated_sorted_arrayII.py)) |
+|3. | Easy       | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)([solution](./ds_list_remove_duplicates_sorted_array.py)) |
 |4. | Easy       | [Array PartitionI](https://leetcode.com/problems/array-partition-i/) ([solution](./ds_list_array_partitionI.py)) |
-|5. | Medium     | [Kth Largest Element](https://leetcode.com/problems/kth-largest-element-in-an-array) ([solution](./ds_list_kth_largest.py)) |
-|6. | Medium     | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) ([solution]()) |
+|5. | Easy       | [Move Zeroes](https://leetcode.com/problems/move-zeroes/) ([solution](./ds_list_move_zeroes.py)) |
+|6. | Medium     | [Sort Colors](https://leetcode.com/problems/sort-colors/) ([solution](./ds_list_sort_colors.py)) |
+|7. | Medium     | [Kth Largest Element](https://leetcode.com/problems/kth-largest-element-in-an-array) ([solution](./ds_list_kth_largest.py)) |
+|8. | Medium     | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) ([solution]()) |
+|9. | Medium       | [Search in Rotated Sorted ArrayII](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) ([solution](./ds_list_search_rotated_sorted_arrayII.py)) |
 
 
 **Hash Table (Dictionary)**
