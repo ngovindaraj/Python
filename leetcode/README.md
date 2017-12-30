@@ -25,18 +25,17 @@ Algorithm based
 Approach based
 --------------------------------------------
 **Two-Pointer**
+
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Medium       | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) ([solution](./ds_list_min_size_subarray_sum.py)) |
-
-
-
 
 
 ----------------------------------------------------------------------------------------
 Data Structure based
 --------------------------------------------
 **Heap**
+
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Medium       | [Top k Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) ([solution](./ds_heap_top_k_frequent_elements.py)) |
