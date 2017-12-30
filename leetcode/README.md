@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [37 Leetcode solutions](./) with comments.
+This is a collection of my [42 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -21,11 +21,28 @@ Algorithm based
 |1. | Medium     | [Decode Ways](https://leetcode.com/problems/decode-ways) ([solution](./dp_decode_ways.py))        |
 
 
+----------------------------------------------------------------------------------------
+Approach based
+--------------------------------------------
+**Two-Pointer**
+|#  | Difficulty | Problem and Solution                                                           |
+|:--|:-----------|:-------------------------------------------------------------------------------|
+|1. | Medium       | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) ([solution](./ds_list_min_size_subarray_sum.py)) |
+
+
+
 
 
 ----------------------------------------------------------------------------------------
 Data Structure based
 --------------------------------------------
+**Heap**
+|#  | Difficulty | Problem and Solution                                                           |
+|:--|:-----------|:-------------------------------------------------------------------------------|
+|1. | Medium       | [Top k Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) ([solution](./ds_heap_top_k_frequent_elements.py)) |
+|2. | Medium       | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) ([solution](./ds_list_product_of_array_except_self.py)) |
+|3. | Medium       | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) ([solution](./ds_string_longest_substring_without_repeating_chs.py)) |
+
 **List**
 
 |#  | Difficulty | Problem and Solution                                                           |
@@ -39,6 +56,9 @@ Data Structure based
 |7. | Medium     | [Kth Largest Element](https://leetcode.com/problems/kth-largest-element-in-an-array) ([solution](./ds_list_kth_largest.py)) |
 |8. | Medium     | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) ([solution]()) |
 |9. | Medium       | [Search in Rotated Sorted ArrayII](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) ([solution](./ds_list_search_rotated_sorted_arrayII.py)) |
+|10. | Medium       | [Missing Ranges](https://leetcode.com/problems/missing-ranges/) ([solution](./ds_list_missing_ranges.py)) |
+
+
 
 
 **Hash Table (Dictionary)**
