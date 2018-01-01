@@ -99,6 +99,7 @@ Data Structure based
 
 
 **Stack/Queue**
+
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Easy       | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) ([solution](./ds_queue_using_stacks.py)) |
