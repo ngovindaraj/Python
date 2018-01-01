@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [42 Leetcode solutions](./) with comments.
+This is a collection of my [46 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -59,7 +59,6 @@ Data Structure based
 
 
 
-
 **Hash Table (Dictionary)**
 
 |#  | Difficulty | Problem and Solution                                                           |
@@ -97,6 +96,15 @@ Data Structure based
 |2. | Easy       | [Is Height Balanced BT](https://leetcode.com/problems/balanced-binary-tree/) ([solution](./ds_tree_height_balanced.py))     |
 |3. | Easy       | [Same Tree](https://leetcode.com/problems/same-tree/) ([solution](./ds_tree_same_tree.py))       |
 |4. | Medium     | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree) ([solution](./ds_tree_validate_bs.py))     |
+
+
+**Stack/Queue**
+|#  | Difficulty | Problem and Solution                                                           |
+|:--|:-----------|:-------------------------------------------------------------------------------|
+|1. | Easy       | [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/) ([solution](./ds_queue_using_stacks.py)) |
+|2. | Easy       | [Implement Stack using Queue](https://leetcode.com/problems/implement-stack-using-queues/) ([solution](./ds_stack_using_queues.py)) |
+|3. | Easy       | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) ([solution](./ds_stack_valid_parentheses.py)) |
+|4. | Medium     | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) ([solution](./ds_stack_reverse_polish_notation.py)) |
 
 ----------------------------------------------------------------------------------------
 Math based
