@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [46 Leetcode solutions](./) with comments.
+This is a collection of my [47 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -42,6 +42,7 @@ Data Structure based
 |2. | Medium       | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) ([solution](./ds_list_product_of_array_except_self.py)) |
 |3. | Medium       | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) ([solution](./ds_string_longest_substring_without_repeating_chs.py)) |
 
+
 **List**
 
 |#  | Difficulty | Problem and Solution                                                           |
@@ -65,6 +66,7 @@ Data Structure based
 |:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Easy       | [Two Sum](https://leetcode.com/problems/two-sum/) ([solution](./ds_hash_two_sum.py))   |
 |2. | Easy       | [Single Number](https://leetcode.com/problems/single-number/) ([solution](./ds_hash_single_number.py))  |
+
 
 
 **String**
@@ -113,6 +115,8 @@ Math based
 
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
-|1. | Medium       | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) ([solution](./math_shuffle.py))   |
+|1. | Easy       | [Reverse Integer](https://leetcode.com/problems/reverse-integer/) ([solution](./math_reverse_integer.py))   |
+|2. | Medium     | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) ([solution](./math_shuffle.py))   |
+
 
 ----------------------------------------------------------------------------------------
