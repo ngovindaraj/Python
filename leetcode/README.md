@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [47 Leetcode solutions](./) with comments.
+This is a collection of my [51 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -18,8 +18,9 @@ Algorithm based
 
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
-|1. | Medium     | [Decode Ways](https://leetcode.com/problems/decode-ways) ([solution](./dp_decode_ways.py))        |
-
+|1. | Medium     | [Decode Ways](https://leetcode.com/problems/decode-ways) ([solution](./dp_decode_ways.py)) |
+|2. | Medium     | [Unique Paths](https://leetcode.com/problems/unique-paths/) ([solution](./dp_unique_paths.py)) |
+|3. | Medium     | [Unique PathsII](https://leetcode.com/problems/unique-paths-ii/) ([solution](./dp_unique_pathsII.py)) |
 
 ----------------------------------------------------------------------------------------
 Approach based
@@ -28,7 +29,8 @@ Approach based
 
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
-|1. | Medium       | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) ([solution](./ds_list_min_size_subarray_sum.py)) |
+|1. | Easy       | [Valid PalindromeII](https://leetcode.com/problems/valid-palindrome-ii/) ([solution](./ds_string_valid_palindromeII.py)) |
+|2. | Medium       | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) ([solution](./ds_list_min_size_subarray_sum.py)) |
 
 
 ----------------------------------------------------------------------------------------
@@ -117,6 +119,6 @@ Math based
 |:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Easy       | [Reverse Integer](https://leetcode.com/problems/reverse-integer/) ([solution](./math_reverse_integer.py))   |
 |2. | Medium     | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) ([solution](./math_shuffle.py))   |
-
+|3. | Medium     | [Rotate Function](https://leetcode.com/problems/rotate-function/) ([solution](./math_rotate_fn.py))   |
 
 ----------------------------------------------------------------------------------------
