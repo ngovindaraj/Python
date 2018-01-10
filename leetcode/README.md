@@ -1,6 +1,6 @@
 Leetcode Programs
 ===================
-This is a collection of my [51 Leetcode solutions](./) with comments.
+This is a collection of my [53 Leetcode solutions](./) with comments.
 
 Algorithm based
 --------------------------------------------
@@ -88,8 +88,9 @@ Data Structure based
 |11. | Easy     | [Length of Last Word](https://leetcode.com/problems/length-of-last-word/) ([solution](./ds_string_length_last_word.py))|
 |12. | Easy     | [Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/) ([solution](./ds_string_palindrome_permutation.py))|
 |13. | Easy     | [Find All Anagrams](https://leetcode.com/problems/find-all-anagrams-in-a-string/) ([solution](./ds_string_find_all_anagrams.py))|
-|14. | Medium     | [Is Subsequence](https://leetcode.com/problems/is-subsequence/) ([solution](./ds_string_is_subsequence.py))   |
-|15. | Medium     | [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/) ([solution](./ds_string_sort_by_freq.py))   |
+|14. | Medium     | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) ([solution](./ds_string_group_anagrams.py))|
+|15. | Medium     | [Is Subsequence](https://leetcode.com/problems/is-subsequence/) ([solution](./ds_string_is_subsequence.py))   |
+|16. | Medium     | [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/) ([solution](./ds_string_sort_by_freq.py))   |
 
 
 **Tree**
@@ -118,6 +119,7 @@ Math based
 |#  | Difficulty | Problem and Solution                                                           |
 |:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Easy       | [Reverse Integer](https://leetcode.com/problems/reverse-integer/) ([solution](./math_reverse_integer.py))   |
+|2. | Easy       | [Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/) ([solution](./math_valid_perfect_square.py))   |
 |2. | Medium     | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) ([solution](./math_shuffle.py))   |
 |3. | Medium     | [Rotate Function](https://leetcode.com/problems/rotate-function/) ([solution](./math_rotate_fn.py))   |
 
