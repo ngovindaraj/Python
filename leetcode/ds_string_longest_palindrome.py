@@ -21,8 +21,8 @@ def longestPalindrome(self, s):
     for elem in s:
         dict[elem] = dict.get(elem, 0) + 1
     for k, v in dict.items():
-        length += (v/2) *2
-        odd = odd | (v % 2)
+        length += (v//2) * 2  #integer division to ignore odds
+        odd = odd | (v % 2)   #odd is a flag which is set if atleast 1 number is odd
     if odd == True:
         length += 1
     return length
@@ -31,5 +31,6 @@ def longestPalindrome(self, s):
 # time complexity: O(n), space complexity: O(1)
 import collections
 def longestPalindrome2(self, s):
+    # Count the number of odds in s - AND each number with 1 to get 0/1 and sum all 0/1
     odds = sum(v & 1 for v in collections.Counter(s).values())
     return len(s) - odds + bool(odds)
