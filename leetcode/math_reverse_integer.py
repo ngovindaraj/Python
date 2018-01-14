@@ -31,6 +31,11 @@ your function returns 0 when the reversed integer overflows.
 # time: O(n)
 # space:
 
+# Understand this as dequeue the last digit each time from input and enqueue the last digit into ans
+# Dequeue: use mod to peek at the last digit and division by base(10) to shift number to right
+# Enqueue: use multiply by base(10) to make space (shift to left) and addition to insert the last digit
+# Overflows: Use the max_int and check if addition or multiplication can cause overflow
+
 def reverse(self, x):
     maxInt = 2**31-1   # Maximum positive integer
     ans = 0
@@ -39,12 +44,12 @@ def reverse(self, x):
     while x:
         x, lastDigit = x // 10, x % 10
         # ans = ans * 10 + lastDigit (with overflow checks)
-        # Do ans = ans * 10 while checking for overflow (a * b <= max ---- a <= max / b)
+        # Do ans = ans * 10 while checking for overflow (a * 10 <= max ---- a <= max / 10)
         if ans   <= maxInt // 10:
             ans *= 10
         else:
             return 0
-        # Do ans += lastDigit while checking overflow (a + b <= max ---- a <= max - b)
+        # Do ans += lastDigit while checking overflow (a + 10 <= max ---- a <= max - 10)
         if ans <= maxInt - lastDigit:
             ans += lastDigit
         else:
