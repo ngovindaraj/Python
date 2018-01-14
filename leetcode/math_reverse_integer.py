@@ -55,3 +55,12 @@ def reverse(self, x):
         else:
             return 0
     return sign * ans
+
+# Approach 2: convert to string
+ def reverse(self, x):
+        sign = 1
+        if x < 0:
+            sign = -1
+            x = sign * x
+        return sign * int(str(x)[::-1])
+
