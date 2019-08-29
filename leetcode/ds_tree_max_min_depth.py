@@ -18,6 +18,21 @@ def maxDepth(self, root):
     return 0
   return 1 + max( self.maxDepth(root.left), self.maxDepth(root.right))
 
+#Iterative solution to find max depth of a BT/BST
+    def maxDepth(self, root: TreeNode) -> int:
+        st : List[(TreeNode, int)] = []
+        max_depth = 0
+        if root:
+            st.append((root, 1))
+        while st:
+            (node, cur_depth) = st.pop()
+            if node.left:
+                st.append((node.left, cur_depth + 1))
+            if node.right:
+                st.append((node.right, cur_depth + 1))
+            max_depth = max(max_depth, cur_depth)
+        return max_depth
+      
 #Use recursion to find the min depth of a BT/BST
 def minDepth(self, root):
   if not root               : return 0
