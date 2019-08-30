@@ -31,4 +31,4 @@ def lengthOfLongestSubstringKDistinct(self, s: str, k: int) -> int:
                 del cntr[s[b]]
             b += 1
             maxlen = max(maxlen, e-b+1)
-        return maxlen
+    return maxlen
