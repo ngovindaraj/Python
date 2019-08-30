@@ -32,7 +32,7 @@ Approach based
 |1. | Easy       | [Valid PalindromeII](https://leetcode.com/problems/valid-palindrome-ii/) ([solution](./ds_string_valid_palindromeII.py)) |
 |2. | Medium       | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) ([solution](./ds_list_min_size_subarray_sum.py)) |
 |3. | Hard       | [Longest substring with at most k distinct characters](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/) ([solution](./ds_string_longest_substring_k_distinct.py)) |
-|4. | Medium       | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) ([solution](./ds_string_longest_substring_without_repeating_characters/.py)) |
+|4. | Medium       | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) ([solution](./ds_string_longest_substring_without_repeat_chs.py)) |
 
 
 ----------------------------------------------------------------------------------------
