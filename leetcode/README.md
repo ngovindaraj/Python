@@ -122,7 +122,7 @@ Math based
 |:--|:-----------|:-------------------------------------------------------------------------------|
 |1. | Easy       | [Reverse Integer](https://leetcode.com/problems/reverse-integer/) ([solution](./math_reverse_integer.py))   |
 |2. | Easy       | [Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/) ([solution](./math_valid_perfect_square.py))   |
-|2. | Medium     | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) ([solution](./math_shuffle.py))   |
-|3. | Medium     | [Rotate Function](https://leetcode.com/problems/rotate-function/) ([solution](./math_rotate_fn.py))   |
+|3. | Medium     | [Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/) ([solution](./math_shuffle.py))   |
+|4. | Medium     | [Rotate Function](https://leetcode.com/problems/rotate-function/) ([solution](./math_rotate_fn.py))   |
 
 ----------------------------------------------------------------------------------------
