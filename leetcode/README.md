@@ -33,7 +33,7 @@ Approach based
 |2. | Medium       | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) ([solution](./ds_list_min_size_subarray_sum.py)) |
 |3. | Hard       | [Longest substring with at most k distinct characters](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/) ([solution](./ds_string_longest_substring_k_distinct.py)) |
 |4. | Medium       | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) ([solution](./ds_string_longest_substring_without_repeat_chs.py)) |
-
+|5. | Medium       | [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) ([solution](./ds_string_longest_repeating_ch_replacement.py)) |
 
 ----------------------------------------------------------------------------------------
 Data Structure based
@@ -103,7 +103,8 @@ Data Structure based
 |2. | Easy       | [Is Height Balanced BT](https://leetcode.com/problems/balanced-binary-tree/) ([solution](./ds_tree_height_balanced.py))     |
 |3. | Easy       | [Same Tree](https://leetcode.com/problems/same-tree/) ([solution](./ds_tree_same_tree.py))       |
 |4. | Medium     | [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree) ([solution](./ds_tree_validate_bs.py))     |
-
+|5. | Medium     | [Number of Islands](https://leetcode.com/problems/number-of-islands/) ([solution](./ds_tree_islands.py))     |
+|6. | Medium     | [Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree/) ([solution](./ds_tree_string_from_binary_tree.py))     |
 
 **Stack/Queue**
 
